@@ -1,6 +1,7 @@
 import 'package:aiyi_flutter_demo_app/demo/basic_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/bottom_navigation_bar_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/drawer_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/layout_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/listview_demo.dart';
 import 'package:aiyi_flutter_demo_app/model/Post.dart';
 import 'package:flutter/material.dart';
@@ -55,8 +56,9 @@ class Home extends StatelessWidget {
           children: <Widget>[
             ListViewDemo(),
             BasicDemo(),
+            LayoutDemo(),
 //            Icon(Icons.change_history, size: 128.0, color: Colors.red),
-            Icon(Icons.change_history, size: 128.0, color: Colors.white),
+//            Icon(Icons.change_history, size: 128.0, color: Colors.white),
             Icon(Icons.directions_bike, size: 128.0, color: Colors.black12),
           ],
         ),
