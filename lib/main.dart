@@ -1,3 +1,4 @@
+import 'package:aiyi_flutter_demo_app/demo/basic_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/bottom_navigation_bar_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/drawer_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/listview_demo.dart';
@@ -53,7 +54,8 @@ class Home extends StatelessWidget {
         body: TabBarView(
           children: <Widget>[
             ListViewDemo(),
-            Icon(Icons.change_history, size: 128.0, color: Colors.red),
+            BasicDemo(),
+//            Icon(Icons.change_history, size: 128.0, color: Colors.red),
             Icon(Icons.change_history, size: 128.0, color: Colors.white),
             Icon(Icons.directions_bike, size: 128.0, color: Colors.black12),
           ],
