@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SliverDemo(),
+      home: Home(),
       theme: ThemeData(
           primarySwatch: Colors.yellow,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
@@ -59,7 +59,7 @@ class Home extends StatelessWidget {
             ListViewDemo(),
             BasicDemo(),
             LayoutDemo(),
-            ViewDemo(),
+            SliverDemo(),
 //            Icon(Icons.change_history, size: 128.0, color: Colors.red),
 //            Icon(Icons.change_history, size: 128.0, color: Colors.white),
 //            Icon(Icons.directions_bike, size: 128.0, color: Colors.black12),
