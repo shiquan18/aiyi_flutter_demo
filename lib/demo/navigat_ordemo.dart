@@ -13,8 +13,13 @@ class NavigatorDemo extends StatelessWidget {
               onPressed: null,
             ),
             FlatButton(
-              child: Text('about'),
-              onPressed: null,
+              child: Text('About'),
+              onPressed: () {
+//                Navigator.of(context).push(MaterialPageRoute(
+//                  builder: (BuildContext context) => Page(title: 'About'),
+//                ));
+                Navigator.pushNamed(context, '/about');
+              },
             ),
           ],
         ),
@@ -26,7 +31,7 @@ class NavigatorDemo extends StatelessWidget {
 class Page extends StatelessWidget {
   final String title;
 
-  Page(this.title);
+  Page({this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +40,11 @@ class Page extends StatelessWidget {
         title: Text(title),
         elevation: 2.0,
       ),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          }),
     );
   }
 }
