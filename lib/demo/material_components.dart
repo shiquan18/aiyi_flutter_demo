@@ -1,5 +1,6 @@
 import 'package:aiyi_flutter_demo_app/demo/button_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/checkbox_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/date_time_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/form_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/popup_menu_button_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/radio_demo.dart';
@@ -14,6 +15,7 @@ class MaterialComponents extends StatelessWidget {
       appBar: AppBar(title: Text('MaterialComponents'), elevation: 2.0),
       body: ListView(
         children: <Widget>[
+          ListItem(title: 'Date & Time', page: DateTimeDemo()),
           ListItem(title: 'Slider', page: SliderDemo()),
           ListItem(title: 'Switch', page: SwitchDemo()),
           ListItem(title: 'Radio', page: RadioDemo()),
