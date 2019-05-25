@@ -4,6 +4,10 @@ class FroDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('formdemo'),
+        elevation: 1.0,
+      ),
       body: Theme(
           data: Theme.of(context).copyWith(
             primaryColor: Colors.black,

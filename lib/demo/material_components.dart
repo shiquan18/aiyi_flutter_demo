@@ -1,4 +1,5 @@
 import 'package:aiyi_flutter_demo_app/demo/button_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/form_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/popup_menu_button_demo.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class MaterialComponents extends StatelessWidget {
       appBar: AppBar(title: Text('MaterialComponents'), elevation: 2.0),
       body: ListView(
         children: <Widget>[
+          ListItem(title: 'Form', page: FroDemo()),
           ListItem(title: 'PopupMenuButton', page: PopupMenuButtonDemo()),
           ListItem(title: 'Button', page: ButtonDemo()),
           ListItem(title: '_WidgetDemo', page: _WidgetDemo()),
