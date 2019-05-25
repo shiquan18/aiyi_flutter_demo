@@ -20,6 +20,18 @@ class _CheckboxDemoState extends State<CheckboxDemo> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              CheckboxListTile(
+                value: _checkboxItemA,
+                onChanged: (value) {
+                  setState(() {
+                    _checkboxItemA = value;
+                  });
+                },
+                title: Text('checkout item a'),
+                subtitle: Text('description'),
+                secondary: Icon(Icons.bookmark),
+                selected: _checkboxItemA,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
