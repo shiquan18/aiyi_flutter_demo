@@ -7,7 +7,7 @@ class DateTimeDemo extends StatefulWidget {
 }
 
 class _DateTimeDemoState extends State<DateTimeDemo> {
-  final DateTime selectedDate = DateTime.now();
+  DateTime selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +40,15 @@ class _DateTimeDemoState extends State<DateTimeDemo> {
         ));
   }
 
-  void _selectDate() {
-    showDatePicker(
+  void _selectDate() async {
+    final DateTime date = await showDatePicker(
         context: context,
         initialDate: selectedDate,
         firstDate: DateTime(1900),
         lastDate: DateTime(2100));
+    if (date == null) return;
+    setState(() {
+      selectedDate = date;
+    });
   }
 }
