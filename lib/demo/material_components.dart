@@ -3,6 +3,7 @@ import 'package:aiyi_flutter_demo_app/demo/checkbox_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/form_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/popup_menu_button_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/radio_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/switch_demo.dart';
 import 'package:flutter/material.dart';
 
 class MaterialComponents extends StatelessWidget {
