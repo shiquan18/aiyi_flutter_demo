@@ -17,13 +17,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-//      home: NavigatorDemo(),
-      initialRoute: '/form',
-      routes: {
-        '/': (context) => Home(),
-        '/about': (context) => Page(title: 'About'),
-        '/form': (context) => FroDemo(),
-      },
+      home: FroDemo(),
+//      initialRoute: '/form',
+//      routes: {
+//        '/': (context) => Home(),
+//        '/about': (context) => Page(title: 'About'),
+//        '/form': (context) => FroDemo(),
+//      },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.5),

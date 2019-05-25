@@ -22,18 +22,44 @@ class FroDemo extends StatelessWidget {
 }
 
 class RegisterForm extends StatefulWidget {
+  @override
   RegisterFormState createState() => RegisterFormState();
 }
 
 class RegisterFormState extends State<RegisterForm> {
   final registerFormKey = GlobalKey<FormState>();
   String username, password;
+  bool autovalidate = false; //自动验证
 
   void submitRegisterForm() {
-    registerFormKey.currentState.save();
+    if (registerFormKey.currentState.validate()) {
+      //为空提示语
+      registerFormKey.currentState.save(); //保存
+      debugPrint('username: $username');
+      debugPrint('password: $password');
+      Scaffold.of(context).showSnackBar(SnackBar(
+        //底部弹框
+        content: Text('Registering...'),
+      ));
+    } else {
+      setState(() {
+        autovalidate = true;
+      });
+    }
+  }
 
-    debugPrint('username: $username');
-    debugPrint('password: $password');
+  String validateUsername(String value) {
+    if (value.isEmpty) {
+      return 'Username is required.';
+    }
+    return null;
+  }
+
+  String validatePassword(String value) {
+    if (value.isEmpty) {
+      return 'Password is required.';
+    }
+    return null;
   }
 
   @override
@@ -45,19 +71,25 @@ class RegisterFormState extends State<RegisterForm> {
           TextFormField(
             decoration: InputDecoration(
               labelText: 'Username',
+              helperText: '',
             ),
             onSaved: (value) {
               username = value;
             },
+            validator: validateUsername,
+            autovalidate: autovalidate,
           ),
           TextFormField(
             obscureText: true,
             decoration: InputDecoration(
               labelText: 'Password',
+              helperText: '',
             ),
             onSaved: (value) {
               password = value;
             },
+            validator: validatePassword,
+            autovalidate: autovalidate,
           ),
           SizedBox(
             height: 32.0,
@@ -78,6 +110,7 @@ class RegisterFormState extends State<RegisterForm> {
 }
 
 class TextFieldDemo extends StatefulWidget {
+  @override
   TextFieldDemoState createState() => TextFieldDemoState();
 }
 
