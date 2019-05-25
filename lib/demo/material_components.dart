@@ -49,25 +49,28 @@ class ButtonDemo extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlatButtonDemo,
-//              Row(
-//                mainAxisAlignment: MainAxisAlignment.center,
-//                children: <Widget>[
-//                  FlatButton(
-//                    child: Text('Button'),
-//                    onPressed: () {},
-//                    splashColor: Colors.grey,
-//                    textColor: Theme.of(context).accentColor,
-//                  ),
-//                  FlatButton.icon(
-//                    icon: Icon(Icons.add),
-//                    label: Text('button'),
-//                    onPressed: () {},
-//                    splashColor: Colors.grey,
-//                    textColor: Theme.of(context).accentColor,
-//                  ),
-//                ],
-//              ),
+//              FlatButtonDemo,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  RaisedButton(
+                    child: Text('Button'),
+                    onPressed: () {},
+                    elevation: 12.0,
+                    splashColor: Colors.grey,
+                    textColor: Theme.of(context).accentColor,
+                  ),
+                  SizedBox(width: 16.0),
+                  RaisedButton.icon(
+                    icon: Icon(Icons.add),
+                    label: Text('button'),
+                    onPressed: () {},
+                    elevation: 12.0,
+                    splashColor: Colors.grey,
+                    textColor: Theme.of(context).accentColor,
+                  ),
+                ],
+              ),
             ],
           ),
         ));
