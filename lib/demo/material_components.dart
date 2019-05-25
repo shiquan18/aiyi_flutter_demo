@@ -12,6 +12,7 @@ class MaterialComponents extends StatelessWidget {
       appBar: AppBar(title: Text('MaterialComponents'), elevation: 2.0),
       body: ListView(
         children: <Widget>[
+          ListItem(title: 'Switch', page: SwitchDemo()),
           ListItem(title: 'Radio', page: RadioDemo()),
           ListItem(title: 'Checkbox', page: CheckboxDemo()),
           ListItem(title: 'Form', page: FroDemo()),
