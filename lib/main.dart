@@ -4,6 +4,7 @@ import 'package:aiyi_flutter_demo_app/demo/drawer_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/form_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/layout_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/listview_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/material_components.dart';
 import 'package:aiyi_flutter_demo_app/demo/navigat_ordemo.dart';
 import 'package:aiyi_flutter_demo_app/demo/sliver_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/view_demo.dart';
@@ -17,12 +18,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FroDemo(),
-//      initialRoute: '/form',
+      home: MaterialComponents(),
+//      initialRoute: '/mdc',
 //      routes: {
 //        '/': (context) => Home(),
 //        '/about': (context) => Page(title: 'About'),
 //        '/form': (context) => FroDemo(),
+//        '/mdc': (context) => MaterialComponents(),
 //      },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
