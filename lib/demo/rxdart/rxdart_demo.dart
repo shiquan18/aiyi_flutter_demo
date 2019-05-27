@@ -30,7 +30,8 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
 
 //    _textFieldSubject.listen((data) => print(data));
     _textFieldSubject
-        .where((item) => item.length > 9)
+        .debounce(Duration(milliseconds: 500))
+//        .where((item) => item.length > 9)
         .listen((data) => print(data));
 //    Observable<String> _observable =
 //        Observable(Stream.fromIterable(['hello', 'nin hao ']));
