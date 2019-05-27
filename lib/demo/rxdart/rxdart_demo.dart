@@ -24,13 +24,20 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
   @override
   void initState() {
     super.initState();
-    Observable<String> _observable =
+//    Observable<String> _observable =
 //        Observable(Stream.fromIterable(['hello', 'nin hao ']));
 //        Observable.fromFuture(Future.value('hello ~'));
 //        Observable.fromIterable((['hello', '您好']));
-        Observable.just('hello ~');
+//        Observable.just('hello ~');
 
-    _observable.listen(print);
+//    _observable.listen(print);
+
+    PublishSubject<String> _subject = PublishSubject<String>();
+    _subject.listen((data) => print('listen 1:$data'));
+    _subject.add('hello');
+    _subject.listen((data) => print('listener 2:${data.toUpperCase()}'));
+    _subject.add('hola');
+    _subject.close();
   }
 
   @override
