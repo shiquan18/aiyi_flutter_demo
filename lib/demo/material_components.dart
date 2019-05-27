@@ -8,6 +8,7 @@ import 'package:aiyi_flutter_demo_app/demo/popup_menu_button_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/radio_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/simple_dialog_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/slider_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/snack_bar_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/switch_demo.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,7 @@ class MaterialComponents extends StatelessWidget {
       appBar: AppBar(title: Text('MaterialComponents'), elevation: 2.0),
       body: ListView(
         children: <Widget>[
+          ListItem(title: 'SnackBar', page: SnackBarDemo()),
           ListItem(title: 'BottomSheet', page: BottomSheetDemo()),
           ListItem(title: 'AlertDialog', page: AlertDialogDemo()),
           ListItem(title: 'SimpleDialog', page: SimpleDialogDemo()),
