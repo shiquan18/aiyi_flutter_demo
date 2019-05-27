@@ -12,6 +12,7 @@ class _ChipDemoState extends State<ChipDemo> {
     'Lemon',
   ];
   String _action = 'Nothing';
+  List<String> _selected = [];
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +92,33 @@ class _ChipDemoState extends State<ChipDemo> {
                       onPressed: () {
                         setState(() {
                           _action = tag;
+                        });
+                      },
+                    );
+                  }).toList(),
+                ),
+                Divider(
+                  color: Colors.grey,
+                  height: 32.0,
+                  // indent: 32.0,
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Text('FilterChip: ${_selected.toString()}'),
+                ),
+                Wrap(
+                  spacing: 8.0,
+                  children: _tags.map((tag) {
+                    return FilterChip(
+                      label: Text(tag),
+                      selected: _selected.contains(tag),
+                      onSelected: (value) {
+                        setState(() {
+                          if (_selected.contains(tag)) {
+                            _selected.remove(tag);
+                          } else {
+                            _selected.add(tag);
+                          }
                         });
                       },
                     );
