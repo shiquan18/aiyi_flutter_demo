@@ -1,4 +1,5 @@
 import 'package:aiyi_flutter_demo_app/demo/alert_dialog_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/bottom_sheet_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/button_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/checkbox_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/date_time_demo.dart';
@@ -17,6 +18,7 @@ class MaterialComponents extends StatelessWidget {
       appBar: AppBar(title: Text('MaterialComponents'), elevation: 2.0),
       body: ListView(
         children: <Widget>[
+          ListItem(title: 'BottomSheet', page: BottomSheetDemo()),
           ListItem(title: 'AlertDialog', page: AlertDialogDemo()),
           ListItem(title: 'SimpleDialog', page: SimpleDialogDemo()),
           ListItem(title: 'Date & Time', page: DateTimeDemo()),
