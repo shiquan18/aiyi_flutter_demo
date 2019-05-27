@@ -6,6 +6,7 @@ import 'package:aiyi_flutter_demo_app/demo/layout_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/listview_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/material_components.dart';
 import 'package:aiyi_flutter_demo_app/demo/navigat_ordemo.dart';
+import 'package:aiyi_flutter_demo_app/demo/rxdart/rxdart_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/sliver_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/state/state_management_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/stream/stream_demo.dart';
@@ -20,8 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StreamDemo(),
-//      initialRoute: '/stream',
+      home: RxDartDemo(),
+//      initialRoute: '/rxdart',
 //      routes: {
 //        '/': (context) => Home(),
 //        '/about': (context) => Page(title: 'About'),
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
 //        '/mdc': (context) => MaterialComponents(),
 //        '/state-management': (context) => StateManagementDemo(),
 //        '/stream': (context) => StreamDemo(),
+//        '/rxdart': (context) => RxDartDemo(),
 //      },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
