@@ -1,6 +1,7 @@
 import 'package:aiyi_flutter_demo_app/demo/alert_dialog_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/bottom_sheet_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/button_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/card_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/checkbox_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/chip_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/data_table_demo.dart';
@@ -23,6 +24,7 @@ class MaterialComponents extends StatelessWidget {
       appBar: AppBar(title: Text('MaterialComponents'), elevation: 2.0),
       body: ListView(
         children: <Widget>[
+          ListItem(title: 'Card', page: CardDemo()),
           ListItem(title: 'PaginatedDataTable', page: PaginatedDataTableDemo()),
           ListItem(title: 'DataTable', page: DataTableDemo()),
           ListItem(title: 'Chip', page: ChipDemo()),
