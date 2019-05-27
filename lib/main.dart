@@ -7,6 +7,7 @@ import 'package:aiyi_flutter_demo_app/demo/listview_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/material_components.dart';
 import 'package:aiyi_flutter_demo_app/demo/navigat_ordemo.dart';
 import 'package:aiyi_flutter_demo_app/demo/sliver_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/state/state_management_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/view_demo.dart';
 import 'package:aiyi_flutter_demo_app/model/Post.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MaterialComponents(),
-//      initialRoute: '/mdc',
+      home: StateManagementDemo(),
+//      initialRoute: '/state-management',
 //      routes: {
 //        '/': (context) => Home(),
 //        '/about': (context) => Page(title: 'About'),
 //        '/form': (context) => FroDemo(),
 //        '/mdc': (context) => MaterialComponents(),
+//        '/state-management': (context) => StateManagementDemo(),
 //      },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
