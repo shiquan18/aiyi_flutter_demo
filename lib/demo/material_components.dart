@@ -7,6 +7,7 @@ import 'package:aiyi_flutter_demo_app/demo/data_table_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/date_time_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/expansion_panel_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/form_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/paginated_data_table_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/popup_menu_button_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/radio_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/simple_dialog_demo.dart';
@@ -22,6 +23,7 @@ class MaterialComponents extends StatelessWidget {
       appBar: AppBar(title: Text('MaterialComponents'), elevation: 2.0),
       body: ListView(
         children: <Widget>[
+          ListItem(title: 'PaginatedDataTable', page: PaginatedDataTableDemo()),
           ListItem(title: 'DataTable', page: DataTableDemo()),
           ListItem(title: 'Chip', page: ChipDemo()),
           ListItem(title: 'ExpansionPanel', page: ExpansionPanelDemo()),

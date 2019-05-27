@@ -1,30 +1,62 @@
 import 'package:aiyi_flutter_demo_app/model/Post.dart';
 import 'package:flutter/material.dart';
 
-class DataTableDemo extends StatefulWidget {
+class PostDataSource extends DataTableSource {
+  final List<Post> _posts = posts;
+  int _selectedCount = 0;
+
   @override
-  _DataTableDemoState createState() => _DataTableDemoState();
+  int get rowCount => _posts.length;
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get selectedRowCount => _selectedCount;
+
+  @override
+  DataRow getRow(int index) {
+    final Post post = _posts[index];
+
+    return DataRow.byIndex(
+      index: index,
+      cells: <DataCell>[
+        DataCell(Text(post.title)),
+        DataCell(Text(post.author)),
+        DataCell(Image.network(post.imageUrl)),
+      ],
+    );
+  }
 }
 
-class _DataTableDemoState extends State<DataTableDemo> {
+class PaginatedDataTableDemo extends StatefulWidget {
+  @override
+  _PaginatedDataTableDemoState createState() => _PaginatedDataTableDemoState();
+}
+
+class _PaginatedDataTableDemoState extends State<PaginatedDataTableDemo> {
   int _sortColumnIndex;
   bool _sortAscending = true;
+  final PostDataSource _postsDataSource = PostDataSource();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('DataTableDemo'),
+          title: Text('PaginatedDataTableDemo'),
           elevation: 0.0,
         ),
         body: Container(
           padding: EdgeInsets.all(16.0),
           child: ListView(
             children: <Widget>[
-              DataTable(
+              PaginatedDataTable(
+                header: Text('Posts'),
+                rowsPerPage: 5,
+                source: _postsDataSource,
                 sortColumnIndex: _sortColumnIndex,
                 sortAscending: _sortAscending,
-//                onSelectAll: (bool value) {},
+                // onSelectAll: (bool value) {},
                 columns: [
                   DataColumn(
                     label: Text('Title'),
@@ -32,12 +64,14 @@ class _DataTableDemoState extends State<DataTableDemo> {
                       setState(() {
                         _sortColumnIndex = index;
                         _sortAscending = ascending;
+
                         posts.sort((a, b) {
                           if (!ascending) {
                             final c = a;
                             a = b;
                             b = c;
                           }
+
                           return a.title.length.compareTo(b.title.length);
                         });
                       });
@@ -50,22 +84,6 @@ class _DataTableDemoState extends State<DataTableDemo> {
                     label: Text('Image'),
                   ),
                 ],
-                rows: posts.map((post) {
-                  return DataRow(
-                      selected: post.selected,
-                      onSelectChanged: (bool value) {
-                        setState(() {
-                          if (post.selected != value) {
-                            post.selected = value;
-                          }
-                        });
-                      },
-                      cells: [
-                        DataCell(Text(post.title)),
-                        DataCell(Text(post.author)),
-                        DataCell(Image.network(post.imageUrl)),
-                      ]);
-                }).toList(),
               ),
             ],
           ),
