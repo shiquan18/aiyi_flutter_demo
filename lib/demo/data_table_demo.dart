@@ -1,3 +1,4 @@
+import 'package:aiyi_flutter_demo_app/model/Post.dart';
 import 'package:flutter/material.dart';
 
 class DataTableDemo extends StatefulWidget {
@@ -25,21 +26,17 @@ class _DataTableDemoState extends State<DataTableDemo> {
                   DataColumn(
                     label: Text('Author'),
                   ),
+                  DataColumn(
+                    label: Text('Image'),
+                  ),
                 ],
-                rows: [
-                  DataRow(cells: [
-                    DataCell(Text('hello ~')),
-                    DataCell(Text('wanghao')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('hola ~')),
-                    DataCell(Text('wanghao')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('您好 ~')),
-                    DataCell(Text('wanghao')),
-                  ]),
-                ],
+                rows: posts.map((post) {
+                  return DataRow(cells: [
+                    DataCell(Text(post.title)),
+                    DataCell(Text(post.author)),
+                    DataCell(Image.network(post.imageUrl)),
+                  ]);
+                }).toList(),
               ),
             ],
           ),
