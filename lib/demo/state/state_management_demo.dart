@@ -15,7 +15,7 @@ class _StateManagementDemoState extends State<StateManagementDemo> {
         title: Text('StateManagementDemo'),
         elevation: 0.0,
       ),
-      body: Counter(_count, _increaseCount),
+      body: CounterWrapper(_count, _increaseCount),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add), onPressed: _increaseCount),
     );
@@ -26,6 +26,20 @@ class _StateManagementDemoState extends State<StateManagementDemo> {
       _count += 1;
     });
     print(_count);
+  }
+}
+
+class CounterWrapper extends StatelessWidget {
+  final int count;
+  final VoidCallback increaseCount;
+
+  CounterWrapper(this.count, this.increaseCount);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Counter(count, increaseCount),
+    );
   }
 }
 
