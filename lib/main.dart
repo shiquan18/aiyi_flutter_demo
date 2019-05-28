@@ -5,6 +5,7 @@ import 'package:aiyi_flutter_demo_app/demo/bottom_navigation_bar_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/drawer_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/form_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/guojihua/i18n_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/guojihua/ninghao_demo_localizations.dart';
 import 'package:aiyi_flutter_demo_app/demo/http/http_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/layout_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/listview_demo.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         return Locale('en', 'US');
       },
       localizationsDelegates: [
+        NinghaoDemoLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
