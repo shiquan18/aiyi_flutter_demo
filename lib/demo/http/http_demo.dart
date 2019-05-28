@@ -40,6 +40,9 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
     print(postJsonConverted['title']); //hello
     print(postJsonConverted['description']); //nice to meet you.
     print(postJsonConverted is Map); //true
+
+    final postModel = Post.fromJson(postJsonConverted);
+    print('title: ${postModel.title}, description: ${postModel.description}');//title: hello, description: nice to meet you.
   }
 
   fetchPost() async {
@@ -53,4 +56,18 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   Widget build(BuildContext context) {
     return Container();
   }
+}
+
+class Post {
+  final String title;
+  final String description;
+
+  Post(this.title, this.description);
+
+  Post.fromJson(Map json)
+      : title = json['title'],
+        description = json['description'];
+//  Post.fromJson(Map json)
+//      : title = json['title'],
+//        description = json['description'];
 }
