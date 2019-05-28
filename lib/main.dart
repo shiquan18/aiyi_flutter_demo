@@ -3,6 +3,7 @@ import 'package:aiyi_flutter_demo_app/demo/bloc/bloc_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/bottom_navigation_bar_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/drawer_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/form_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/http/http_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/layout_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/listview_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/material_components.dart';
@@ -22,8 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BlocDemo(),
-//      initialRoute: '/bloc',
+      home: HttpDemo(),
+//      initialRoute: '/http',
 //      routes: {
 //        '/': (context) => Home(),
 //        '/about': (context) => Page(title: 'About'),
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
 //        '/stream': (context) => StreamDemo(),
 //        '/rxdart': (context) => RxDartDemo(),
 //        '/bloc': (context) => BlocDemo(),
+//        '/http': (context) => HttpDemo(),
 //      },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
