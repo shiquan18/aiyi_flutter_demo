@@ -25,7 +25,7 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   @override
   void initState() {
     super.initState();
-    fetchPost().then((value) => print('result  value =$value'));
+//    fetchPost().then((value) => print('result  value =$value'));
 //    final post = {
 //      'title': 'hello',
 //      'description': 'nice to meet you.',
@@ -53,19 +53,19 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
     final response =
         await http.get('https://resources.ninghao.net/demo/posts.json');
 
-    print('statusCode:${response.statusCode}');
-    print('body:${response.body}');
+//    print('statusCode:${response.statusCode}');
+//    print('body:${response.body}');
 
     if (response.statusCode == 200) {
       final responseBody = json.decode(response.body);
-      print('responseBody:$responseBody');
+//      print('responseBody:$responseBody');
       List<Post> posts = responseBody['posts']
           .map<Post>((item) => Post.fromJson(item))
           .toList();
-      for (int i = 0; i < posts.length; i++) {
-        print('title:${posts[i].title}');
-        print('author:${posts[i].author}');
-      }
+//      for (int i = 0; i < posts.length; i++) {
+//        print('title:${posts[i].title}');
+//        print('author:${posts[i].author}');
+//      }
 
       return posts;
     } else {
@@ -75,7 +75,28 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return FutureBuilder(
+        future: fetchPost(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          print('data: ${snapshot.data}');
+          print('connectionState: ${snapshot.connectionState}');
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: Text('loading...'),
+            );
+          }
+          return ListView(
+            children: snapshot.data.map<Widget>((item) {
+              return ListTile(
+                title: Text(item.title),
+                subtitle: Text(item.author),
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(item.imageUrl),
+                ),
+              );
+            }).toList(),
+          );
+        });
   }
 }
 
