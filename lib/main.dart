@@ -19,6 +19,7 @@ import 'package:aiyi_flutter_demo_app/demo/view_demo.dart';
 import 'package:aiyi_flutter_demo_app/model/Post.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:ninghao_flutter/demo/i18n/map/ninghao_demo_localizations.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,8 +27,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-//      locale: Locale('en', 'US'),
-      locale: Locale('zh', 'CN'),
+      locale: Locale('en', 'US'),
+//      locale: Locale('zh', 'CN'),
 //      localeResolutionCallback:
 //          (Locale locale, Iterable<Locale> supportedLocales) {
 //        return Locale('en', 'US');

@@ -1,28 +1,37 @@
-import 'package:flutter/foundation.dart' show SynchronousFuture;
+import 'package:aiyi_flutter_demo_app/demo/guojihua/intl/ninghao_demo_messages_all.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class NinghaoDemoLocalizations {
-  final Locale locale;
-
-  NinghaoDemoLocalizations(this.locale);
-
   static NinghaoDemoLocalizations of(BuildContext context) {
     return Localizations.of<NinghaoDemoLocalizations>(
         context, NinghaoDemoLocalizations);
   }
 
-  static Map<String, Map<String, String>> _localized = {
-    'en': {
-      'title': 'hello',
-    },
-    'zh': {
-      'title': '您好',
-    }
-  };
+  static Future<NinghaoDemoLocalizations> load(Locale locale) {
+    final String name =
+        locale.countryCode.isEmpty ? locale.languageCode : locale.toString();
 
-  String get title {
-    return _localized[locale.languageCode]['title'];
+    final String localeName = Intl.canonicalizedLocale(name);
+
+    return initializeMessages(localeName).then((bool _) {
+      Intl.defaultLocale = localeName;
+      return NinghaoDemoLocalizations();
+    });
   }
+
+  String get title => Intl.message(
+        'hello',
+        name: 'title',
+        desc: 'demo localizations.',
+      );
+
+  String greet(String name) => Intl.message(
+        'hello $name',
+        name: 'greet',
+        desc: 'greet someone.',
+        args: [name],
+      );
 }
 
 class NinghaoDemoLocalizationsDelegate
@@ -31,8 +40,7 @@ class NinghaoDemoLocalizationsDelegate
 
   @override
   Future<NinghaoDemoLocalizations> load(Locale locale) {
-    return SynchronousFuture<NinghaoDemoLocalizations>(
-        NinghaoDemoLocalizations(locale));
+    return NinghaoDemoLocalizations.load(locale);
   }
 
   @override
