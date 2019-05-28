@@ -4,6 +4,7 @@ import 'package:aiyi_flutter_demo_app/demo/bloc/bloc_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/bottom_navigation_bar_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/drawer_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/form_demo.dart';
+import 'package:aiyi_flutter_demo_app/demo/guojihua/i18n_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/http/http_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/layout_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/listview_demo.dart';
@@ -16,6 +17,7 @@ import 'package:aiyi_flutter_demo_app/demo/stream/stream_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/view_demo.dart';
 import 'package:aiyi_flutter_demo_app/model/Post.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,9 +25,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en', 'US'),
+        Locale('zh', 'CN'),
+      ],
       debugShowCheckedModeBanner: false,
-      home: AnimationDemo(),
-//      initialRoute: '/animation',
+      home: I18nDemo(),
+//      initialRoute: '/i18n',
 //      routes: {
 //        '/': (context) => Home(),
 //        '/about': (context) => Page(title: 'About'),
@@ -37,6 +47,7 @@ class MyApp extends StatelessWidget {
 //        '/bloc': (context) => BlocDemo(),
 //        '/http': (context) => HttpDemo(),
 //        '/animation': (context) => AnimationDemo(),
+//        '/i18n': (context) => I18nDemo(),
 //      },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
