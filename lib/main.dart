@@ -1,3 +1,4 @@
+import 'package:aiyi_flutter_demo_app/demo/animation/animation_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/basic_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/bloc/bloc_demo.dart';
 import 'package:aiyi_flutter_demo_app/demo/bottom_navigation_bar_demo.dart';
@@ -23,8 +24,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HttpDemo(),
-//      initialRoute: '/http',
+      home: AnimationDemo(),
+//      initialRoute: '/animation',
 //      routes: {
 //        '/': (context) => Home(),
 //        '/about': (context) => Page(title: 'About'),
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
 //        '/rxdart': (context) => RxDartDemo(),
 //        '/bloc': (context) => BlocDemo(),
 //        '/http': (context) => HttpDemo(),
+//        '/animation': (context) => AnimationDemo(),
 //      },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
