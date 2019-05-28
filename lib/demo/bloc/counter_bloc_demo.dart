@@ -1,14 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class CounterHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    CounterBloc _counterBloc = CounterProvider.of(context).bloc;
+    CounterBloc _counterBloc = CounterProvider
+        .of(context)
+        .bloc;
     return Center(
       child: ActionChip(
         label: Text('0'),
         onPressed: () {
-          _counterBloc.log();
+//          _counterBloc.log();
+          _counterBloc.counter.add(1);
         },
       ),
     );
@@ -18,11 +23,14 @@ class CounterHome extends StatelessWidget {
 class CounterActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    CounterBloc _counterBloc = CounterProvider.of(context).bloc;
+    CounterBloc _counterBloc = CounterProvider
+        .of(context)
+        .bloc;
     return FloatingActionButton(
       child: Icon(Icons.add),
       onPressed: () {
-        _counterBloc.log();
+//        _counterBloc.log();
+        _counterBloc.counter.add(1);
       },
     );
   }
@@ -44,7 +52,23 @@ class CounterProvider extends InheritedWidget {
 }
 
 class CounterBloc {
+  final _counterActionController = StreamController<int>();
+
+  StreamSink<int> get counter => _counterActionController.sink;
+
+  CounterBloc() {
+    _counterActionController.stream.listen(onData)
+  }
+
+  void disponse() {
+    _counterActionController.close();
+  }
+
   void log() {
     print('BLoC');
+  }
+
+  void onData(int data) {
+    print('data  $data');
   }
 }
