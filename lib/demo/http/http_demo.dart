@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -23,7 +25,21 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   @override
   void initState() {
     super.initState();
-    fetchPost();
+//    fetchPost();
+    final post = {
+      'title': 'hello',
+      'description': 'nice to meet you.',
+    };
+    print(post['title']); //hello
+    print(post['description']); //nice to meet you.
+
+    final postJson = json.encode(post);
+    print(postJson); //{"title":"hello","description":"nice to meet you."}
+
+    final postJsonConverted = json.decode(postJson);
+    print(postJsonConverted['title']); //hello
+    print(postJsonConverted['description']); //nice to meet you.
+    print(postJsonConverted is Map); //true
   }
 
   fetchPost() async {
